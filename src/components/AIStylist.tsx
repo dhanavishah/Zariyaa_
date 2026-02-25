@@ -7,7 +7,9 @@ import { MOCK_PRODUCTS } from '../constants';
 import { useStore } from '../StoreContext';
 import ProductCard from './ProductCard';
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ 
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY 
+});
 
 export default function AIStylist() {
   const [input, setInput] = React.useState('');
