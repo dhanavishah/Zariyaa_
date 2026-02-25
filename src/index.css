@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-maroon-900: #5B0E2D;
+  --color-maroon-800: #7A123B;
+  --color-gold-100: #fdf6e3;
+  --color-gold-200: #f9edcd;
+  --color-gold-300: #f3db9d;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #C6A75E;
+  --color-gold-600: #A88B4B;
+}
+
+@layer base {
+  body {
+    @apply bg-stone-50 text-stone-900 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .royal-border {
+    @apply border border-gold-500/30 relative;
+  }
+  
+  .royal-border::before {
+    content: '';
+    @apply absolute -inset-1 border border-gold-500/10 pointer-events-none;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #f3db9d 50%, #b8860b 100%);
+  }
+
+  .maroon-gradient {
+    background: linear-gradient(135deg, #5d0606 0%, #4a0404 100%);
+  }
+
+  .paisley-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-10 5-15 10-15s10 5 10 15-5 15-10 15-10-5-10-15zm-20 0c0-10 5-15 10-15s10 5 10 15-5 15-10 15-10-5-10-15z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+}
+
+.btn-royal {
+  @apply px-6 py-2 bg-maroon-900 text-gold-300 border border-gold-500/50 hover:bg-maroon-800 transition-all duration-300 font-serif text-lg tracking-wide uppercase;
+}
+
+.btn-gold {
+  @apply px-6 py-2 bg-gold-500 text-maroon-900 border border-maroon-900/20 hover:bg-gold-400 transition-all duration-300 font-serif text-lg tracking-wide uppercase;
+}
